@@ -200,14 +200,11 @@ def generate_supervision_multi_threads(feature, label, cues, mask, pred, knn_mat
             node_ids = np.arange(41 * 41)
             label_new = g.get_grid_segments(node_ids)
 
-            print("开启线程： " + self.name)
-            # 获取锁，用于线程同步
             # threadLock.acquire()
             supervision[self.i][self.c_c] = torch.from_numpy(
                 np.where(self.pred_c > 0.7, label_new.astype(int).reshape(41, 41),
                          supervision[self.i][self.c_c])).float()
 
-            # 释放锁，开启下一个线程
             # threadLock.release()
 
     def call_cpp_extension(lon1, lat1, lon2, lat2, test_cnt):
@@ -243,10 +240,10 @@ def generate_supervision_multi_threads(feature, label, cues, mask, pred, knn_mat
         t.setDaemon(True)
         t.start()
 
-    # 等待所有线程完成
+    #
     for t in threads:
         t.join()
-    # print("退出主线程")
+    # print(")
 
     return supervision
 
@@ -418,25 +415,6 @@ class ConfusionMatrix(object):
     def __str__(self):
         pass
 
-    # 如果你说的是recall和precision假设一共有10篇文章，里面4篇是你要找的。
-    # 根据你某个算法，你认为其中有5篇是你要找的，但是实际上在这5篇里面，只有3篇是真正你要找的。
-    # 那么你的这个算法的precision是3/5=60%，
-    # 也就是，你找的这5篇，有3篇是真正对的这个算法的recall是3/4=75%，
-    # 也就是，一共有用的这4篇里面，你找到了其中三篇。请自行归纳总结。
-    #
-    # true positive : 3
-    # false positive : 2
-    # false negative : 1
-
-    #             prediction
-    #           True     False
-    #     True   TP       FN
-    # GT
-    #     False  FP       TN
-
-    # precision = true positive / (true positive + false positive)
-
-    # recall = true positive / (true positive + false negative)
     def precision(self):
         recall = 0.0
         for i in xrange(self.nclass):
