@@ -26,7 +26,7 @@ Comprehensive experiments demonstrate that WeakCLIP provides an effective way to
 - [Environment Setup ](docs/Install.md)
 - [Prepare Dataset](docs/prepare_dataset.md)
 - [TrainEval](docs/TrainEval.md)
-- [Deeplab Retraining](deeplabv1-resnet38/README.md)
+- [Deeplab Retraining](https://github.com/Yingyue-L/deeplabv1-resnet38)
 
 ## Model Zoo
 |     Dataset     |                            Checkpoint                          |                          Pseudo Mask                           | Train mIoU |       Retrain Checkpoint                        | Val mIoU |
