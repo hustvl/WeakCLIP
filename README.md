@@ -8,7 +8,7 @@
 
 (\*) equal contribution, (<sup>:email:</sup>) corresponding author.
 
-ArXiv Preprint ([arXiv ]())
+Accepted by IJCV ([Paper](https://link.springer.com/article/10.1007/s11263-024-02224-2))
 
 </div>
 
@@ -39,6 +39,12 @@ MIT License
 ## Citation
 If you find our work useful in your research, please consider citing:
 ```
-@inproceedings{
+@article{zhu2024weakclip,
+  title={WeakCLIP: Adapting CLIP for Weakly-Supervised Semantic Segmentation},
+  author={Zhu, Lianghui and Wang, Xinggang and Feng, Jiapei and Cheng, Tianheng and Li, Yingyue and Jiang, Bo and Zhang, Dingwen and Han, Junwei},
+  journal={International Journal of Computer Vision},
+  pages={1--21},
+  year={2024},
+  publisher={Springer}
 }
 ```
